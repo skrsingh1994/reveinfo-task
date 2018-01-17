@@ -1,0 +1,113 @@
+<div class="container">
+    <div class="row main">
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+                <h1 class="title">Sign Up Page</h1>
+                <hr/>
+            </div>
+        </div>
+        <div class="main-login main-center">
+            <form class="form-horizontal" name="signupForm" method="post" novalidate ng-submit="submitForm()">
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" ng-model="formData.name"
+                                   name="name" id="name" placeholder="Enter your Name"
+                                   minlength="2" maxlength="10"
+                                   required/>
+                        </div>
+                        <div ng-messages="signupForm.name.$error" ng-show="signupForm.name.$touched" role="alert">
+                            <div ng-message="required">Name is required.</div>
+                            <div ng-message="pattern">Please enter a valid name.</div>
+                            <div ng-message="minlength">At least 2 chars required</div>
+                            <div ng-message="maxlength">At max 10 chars allowed</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="email" id="email"
+                                   ng-model="formData.email"
+                                   required placeholder="Enter your Email" validate-email/>
+                        </div>
+                        <div ng-messages="signupForm.email.$error" ng-show="signupForm.email.$touched" role="alert">
+                            <div ng-message="required">Email is required.</div>
+                            <div ng-message="emailvalid">Email is not Valid.</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username" class="cols-sm-2 control-label">Username</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="username" id="username"
+                                   ng-model="formData.username"
+                                   placeholder="Enter your Username" validate-username required/>
+                        </div>
+                        <div ng-messages="signupForm.username.$error" ng-show="signupForm.username.$touched" role="alert">
+                            <div ng-message="required">Username is required.</div>
+                            <div ng-message="username">Username should be alphanumeric and at least 4 chars long.</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <label for="password" class="cols-sm-2 control-label">Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group ">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="password" id="password"
+                                   ng-model="formData.password"
+                                   required
+                                   validate-password="passwordStrength"
+                                   placeholder="Enter your Password"/>
+                        </div>
+                        <div class="help-block" ng-messages="signupForm.password.$error" ng-show="signupForm.password.$touched" role="alert">
+                            <div ng-message="required">Password is required.</div>
+                            <div ng-message="password">Password should be alphanumeric and at least 6 chars long. Preferab;y use special chars !@#</div>
+                        </div>
+                        <div>{{passwordStrength}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="confirm" id="confirm"
+                                   ng-model="formData.confirmpassword"
+                                   confirm-password="{{formData.password}}"
+                                   required
+                                   placeholder="Confirm your Password"/>
+                        </div>
+                        <div class="help-block" ng-messages="signupForm.confirm.$error"
+                             ng-show="signupForm.confirm.$touched" role="alert">
+                            <div ng-message="required">Confirm Password is required.</div>
+                            <div ng-message="passwordmatch">Passwords & Confirm Password doesn't match</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Sign Up</button>
+                </div>
+                <div class="login-register">
+                    <a ui-sref="login">Sign In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

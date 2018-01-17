@@ -1,0 +1,21 @@
+{
+  "name": "revinfo-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sushil (sushil@mytechminds.com)",
+  "license": "ISC",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.13",
+    "angular": "^1.6.8",
+    "angular-messages": "^1.6.8",
+    "bootstrap": "^3.3.7",
+    "chalk": "^2.3.0",
+    "express": "^4.16.2",
+    "jquery": "^1.12.4",
+    "open": "0.0.5"
+  }
+}
